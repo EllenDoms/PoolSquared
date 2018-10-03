@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class socialButton extends Component {
+export default class Button extends Component {
   render() {
     return (
       <button className='socialButton' onClick={this.props.click}>
