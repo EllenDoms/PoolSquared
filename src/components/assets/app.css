@@ -1,0 +1,9 @@
+.center {
+  text-align: center;
+}
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #6F6E6D;
+  line-height: 24px;
+}

@@ -1,0 +1,76 @@
+out: default.css
+
+@primary: #00D0C6;
+@primary-light: #9AD4CB;
+@primary-dark: #4FA9AB;
+
+@neutral: #6F6E6D;
+@neutral-light: #9B9289;
+@neutral-dark: #524F48;
+
+@h-font: 'Teko', sans-serif;
+@p-font: 'Roboto', sans-serif;
+
+@overlay: rgba(108,121,120,0.28);
+@overlay-shadow: 0 0 25px 0 rgba(0,0,0,0.20);
+
+* {padding: 0; margin: 0; font-family: @p-font;}
+
+.center { text-align: center; align-self: center; }
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+p {
+  font-size: 14px;
+  color: @neutral;
+  line-height: 24px;
+  &.textLight { opacity: 0.5; }
+}
+
+button {
+  line-height: 48px;
+  width: 100%;
+  background-color: @primary;
+  border: none;
+  color: #FFF;
+  font-size: 16px;
+  margin: 10px auto;
+  .mdi {
+    margin-right: 10px;
+  }
+}
+
+.overlay {
+  background: @overlay;
+  position: fixed;
+  overflow-y: scroll;
+  height: 100vh;
+  width: 100vw;
+  .container {
+    margin-top: 15vh;
+    min-height: ~"calc(85vh - 40px)";
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+.container {
+  background: #FFFFFF;
+  box-shadow: @overlay-shadow;
+  position: absolute;
+  width: ~"calc(100vw - 40px)";
+  padding: 20px;
+}
+
+/*** IMAGES ***/
+.imgMedium {
+  width: 225px;
+  margin: 0px auto 30px auto;
+}
