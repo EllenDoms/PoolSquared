@@ -17,11 +17,14 @@ class Radar extends Component {
 
   }
   render() {
-    console.log(this.state.loginOverlay)
     return (
       <div>
         <Login state={this.state.loginOverlay === true ? 'overlayScreen active' : 'overlayScreen'} close={() => this.setState({loginOverlay: false})}/>
-        <Header title='Find a pool' iconRight='account-outline' clickRight={() => this.setState({loginOverlay: true})} />
+        <Header
+          title='Find a pool'
+          iconRight='account-outline'
+          clickRight={() => this.setState({loginOverlay: true})}
+        />
         Map
         Cards
 
@@ -32,7 +35,7 @@ class Radar extends Component {
 
 function mapStateToProps(state) {
   return {
-    loggedIn: state.data.loggedIn
+    user: state.user
   };
 }
 

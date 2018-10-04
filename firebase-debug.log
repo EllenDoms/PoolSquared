@@ -1,0 +1,28 @@
+[debug] [2018-10-04T11:32:17.651Z] ----------------------------------------------------------------------
+[debug] [2018-10-04T11:32:17.653Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-04T11:32:17.653Z] CLI Version:   4.2.1
+[debug] [2018-10-04T11:32:17.653Z] Platform:      darwin
+[debug] [2018-10-04T11:32:17.653Z] Node Version:  v8.10.0
+[debug] [2018-10-04T11:32:17.653Z] Time:          Thu Oct 04 2018 13:32:17 GMT+0200 (CEST)
+[debug] [2018-10-04T11:32:17.653Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-04T11:32:17.665Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-04T11:32:17.665Z] > authorizing via signed-in user
+[debug] [2018-10-04T11:32:17.667Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-10-04T11:32:17.667Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+
+[debug] [2018-10-04T11:32:17.852Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-04T11:32:17.872Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/pool-squared  
+ 
+[debug] [2018-10-04T11:32:18.517Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-04T11:32:18.518Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/pool-squared  
+ 
+[debug] [2018-10-04T11:32:19.312Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Ellen/projects/poolsquared'...
+[info] 
+[debug] [2018-10-04T11:32:19.315Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/237933851037/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-04T11:32:19.587Z] <<< HTTP RESPONSE 200
+[info] i  hosting[pool-squared]: Serving hosting files from: public
+[info] ✔  hosting[pool-squared]: Local server: http://localhost:5000

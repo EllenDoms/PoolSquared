@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@mdi/font": "^2.8.94",
+    "firebase": "^5.5.2",
+    "firebase-tools": "^4.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
