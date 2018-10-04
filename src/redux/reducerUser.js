@@ -1,4 +1,4 @@
-import { UPDATE_USER } from "./types";
+import { UPDATE_USER, SCREEN_OVERLAY } from "./types";
 
 const initialState = {
   user: {
@@ -6,13 +6,21 @@ const initialState = {
     uid: '',
     fbPhotoUrl: '',
     name: ''
+  },
+  screenOverlay: {
+    login: false,
+    profile: false,
+    detail: false,
+    confirmation: false
   }
 };
 
 export default function reducerState (state = initialState, action) {
   switch(action.type) {
     case UPDATE_USER :
-      return { user: action.user }
+      return { ...state, user: action.payload }
+    case SCREEN_OVERLAY :
+      return { ...state, screenOverlay: { ...state.screenOverlay, [action.screen] : action.state} }
     default:
       return state;
   }

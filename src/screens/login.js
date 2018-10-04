@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { login } from '../redux/actions';
+import { login, overlayScreen } from '../redux/actions';
 import * as firebase from 'firebase';
 import { provider, auth } from '../config/firebase';
 
@@ -10,7 +10,6 @@ import Logo from '../components/assets/logo.png';
 
 class Login extends Component {
   login() {
-
     auth().signInWithPopup(provider).then(result => {
       this.props.login(result.user);
     }).catch(function(error) { console.log(error) });
@@ -18,7 +17,7 @@ class Login extends Component {
   render() {
     return (
       <div className={this.props.state} >
-        <div className='overlay' onClick={this.props.close}/>
+        <div className='overlay' onClick={() => this.props.overlayScreen('login', false)}/>
         <div className='card center'>
           <img className='radarBg' src={RadarBg}></img>
           <div className='wrapper'>
@@ -35,8 +34,9 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    screen: state.user.screenOverlay
   };
 }
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { login, overlayScreen })(Login);

@@ -8,22 +8,13 @@ import Header from '../components/organisms/header';
 import Login from './login';
 
 class Radar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      loginOverlay: false,
-      profileOverlay: false,
-    }
-
-  }
   render() {
+    const { screen } = this.props
     return (
       <div>
-        <Login state={this.state.loginOverlay === true ? 'overlayScreen active' : 'overlayScreen'} close={() => this.setState({loginOverlay: false})}/>
+        <Login state={screen.login === true ? 'overlayScreen active' : 'overlayScreen'} close={() => this.setState({loginOverlay: false})}/>
         <Header
           title='Find a pool'
-          iconRight='account-outline'
-          clickRight={() => this.setState({loginOverlay: true})}
         />
         Map
         Cards
@@ -35,7 +26,8 @@ class Radar extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user.user,
+    screen: state.user.screenOverlay
   };
 }
 

@@ -1,19 +1,12 @@
-import { UPDATE_USER } from './types.js';
+import { UPDATE_USER, SCREEN_OVERLAY } from './types.js';
 import * as firebase from "firebase";
 
 export const login = (user) => (dispatch, getState) => {
-  console.log('We are logging in')
   firebase.database().ref('/people/' + user.uid).once('value')
   .then(snapshot => snapshot.val()).then(val => {
-    console.log(val)
     if(val) {
-      console.log('Exists: ', val)
-      dispatch({
-        type: UPDATE_USER,
-        user: val,
-      });
+      dispatch({ type: UPDATE_USER, payload: val });
     } else {
-      console.log('Does not exist yet')
       let params = {
         loggedIn: true,
         uid: user.uid,
@@ -21,15 +14,13 @@ export const login = (user) => (dispatch, getState) => {
         name: user.displayName
       }
       firebase.database().ref('/people/' + user.uid).update(params);
-      dispatch({
-        type: UPDATE_USER,
-        user: params,
-      });
+      dispatch({ type: UPDATE_USER, payload: params });
     }
+    // now we can close the login screen
+    dispatch({ type: SCREEN_OVERLAY, screen: 'login', state: false });
   })
-
-  // firebase.database().ref('/' + game + '/people/' + user.uid).on('value', (snapshot) => {
-  //   dispatch({ type: UPDATE_USER, payload: snapshot.val() })
-  // });
-
 };
+
+export const overlayScreen = (screen, state) => (dispatch, getState) => {
+  dispatch({ type: SCREEN_OVERLAY, screen: screen, state: state });
+}

@@ -11,11 +11,11 @@ import Radar from './screens/radar';
 
 class App extends Component {
   componentDidMount() {
-  // listener authentication
-  auth().onAuthStateChanged(user => {
-    if(user) { this.props.login(user) }
-  });
-}
+    // listener authentication
+    auth().onAuthStateChanged(user => {
+      if(user) { this.props.login(user) }
+    });
+  }
   render() {
     return (
       <div className="App">
