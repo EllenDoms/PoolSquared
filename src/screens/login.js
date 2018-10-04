@@ -21,7 +21,7 @@ class Login extends Component {
         <div className='card center'>
           <img className='radarBg' src={RadarBg}></img>
           <div className='wrapper'>
-            <img className='imgMedium center' src={Logo}></img>
+            <img className='logoMedium center' src={Logo}></img>
             <p>Login to make a reservation</p>
             <Button label='Continue with facebook' icon='facebook' disabled='false' click={() => this.login()} />
             <p className="textLight">We don't post anything on facebook</p>

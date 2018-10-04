@@ -74,7 +74,7 @@ button .mdi {
 }
 .overlayScreen .card {
   position: absolute;
-  min-height: calc(85vh - 50px);
+  min-height: calc(90vh - 50px);
   width: calc(100vw - 50px);
   border-radius: 10px 10px 0px 0px;
   display: flex;
@@ -89,7 +89,7 @@ button .mdi {
   transition: opacity 0.3s linear;
 }
 .overlayScreen.active .card {
-  top: 15vh;
+  top: 10vh;
 }
 /*** ICONS ***/
 .mdi {
@@ -97,8 +97,8 @@ button .mdi {
   color: #6F6E6D;
 }
 /*** IMAGES ***/
-.imgMedium {
-  width: 225px;
+.logoMedium {
+  width: 180px;
   margin: 0px auto 30px auto;
 }
 /*** HEADER ***/
@@ -107,5 +107,5 @@ button .mdi {
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  padding-top: 66px;
+  padding-top: 30px;
 }

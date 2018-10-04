@@ -84,7 +84,7 @@ button {
   }
   .card {
     position: absolute;
-    min-height: ~"calc(85vh - 50px)";
+    min-height: ~"calc(90vh - 50px)";
     width: ~"calc(100vw - 50px)";
     border-radius: 10px 10px 0px 0px;
     display: flex;
@@ -99,7 +99,7 @@ button {
       opacity: 1;
       transition: @overlayFadeIn;
     }
-    .card { top: 15vh; }
+    .card { top: 10vh; }
   }
 }
 
@@ -110,8 +110,8 @@ button {
 }
 
 /*** IMAGES ***/
-.imgMedium {
-  width: 225px;
+.logoMedium {
+  width: 180px;
   margin: 0px auto 30px auto;
 }
 
@@ -121,5 +121,5 @@ button {
   display: flex;
   justify-content: space-between;
   padding: @padding;
-  padding-top: 66px;
+  padding-top: 30px; // if full screen: should be 66px
 }

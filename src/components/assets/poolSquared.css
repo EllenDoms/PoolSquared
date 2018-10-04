@@ -1,11 +1,12 @@
 .radarBg {
   position: absolute;
-  margin-top: -10vh;
+  margin-top: -11vh;
   align-self: center;
   width: 180vw;
   max-width: 600px;
 }
 .wrapper {
-  position: relative;
-  margin-top: 35vh;
+  position: absolute;
+  bottom: 5vh;
+  width: calc(100vw - 50px);
 }
