@@ -9,7 +9,7 @@ class Login extends Component {
   render() {
     return (
       <div className='overlay' onClick={this.props.close}>
-        <div className='container center'>
+        <div className='card center'>
           <img className='radarBg' src={RadarBg}></img>
           <div className='wrapper'>
             <img className='imgMedium center' src={Logo}></img>

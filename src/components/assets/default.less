@@ -16,12 +16,11 @@ out: default.css
 @overlay: rgba(108,121,120,0.28);
 @overlay-shadow: 0 0 25px 0 rgba(0,0,0,0.20);
 
-@overlayFade: fadeIn 0.3s forwards;
-@overlaySlide: slideIn 0.3s forwards;
+@overlayFadeIn: opacity 0.3s linear;
+@overlayFadeOut: visibility 0s 0.3s, opacity 0.3s linear;
+@transition: all 0.3s ease;
 
 @keyframes slideIn { 100% { bottom: 0; }}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
 
 * {padding: 0; margin: 0; font-family: @p-font;}
 
@@ -39,7 +38,7 @@ h1 {
 h2 {
   font-family: @h-font;
   font-size: 22px;
-  line-height: 24px;
+  line-height: 30px;
   color: @neutral;
   text-transform: uppercase;
 }
@@ -59,36 +58,54 @@ button {
   color: #FFF;
   font-size: 16px;
   margin: 10px auto;
-  .mdi {
-    margin-right: 10px;
-  }
 }
+
+.card {
+  background: #FFFFFF;
+  box-shadow: @overlay-shadow;
+  padding: @padding;
+}
+
+/*** OVERLAY ***/
 .overlayScreen { position: fixed; }
+
 .overlay {
   background: @overlay;
   position: fixed;
-  overflow-y: scroll;
   height: 100vh;
   width: 100vw;
-  animation: @overlayFade;
-  .container {
+  visibility: hidden;
+  opacity: 0;
+  transition: @overlayFadeOut ;
+  .card {
+    position: absolute;
     margin-top: 15vh;
     min-height: ~"calc(85vh - 50px)";
+    width: ~"calc(100vw - 50px)";
     border-radius: 10px 10px 0px 0px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    bottom: -80vh;
-    animation: @overlaySlide;
+    bottom: -100vh;
+    overflow: hidden;
+    transition: @transition;
   }
 }
-.container {
-  background: #FFFFFF;
-  box-shadow: @overlay-shadow;
-  position: absolute;
-  width: ~"calc(100vw - 50px)";
-  padding: @padding;
+
+.active .overlay {
+  visibility: visible;
+  opacity: 1;
+  transition: @overlayFadeIn;
+  .card { bottom: 0; }
 }
+
+
+/*** ICONS ***/
+.mdi {
+  padding: 5px;
+  color: @neutral;
+}
+
+button .mdi { margin-right: 10px; color: #fff; }
 
 /*** IMAGES ***/
 .imgMedium {
