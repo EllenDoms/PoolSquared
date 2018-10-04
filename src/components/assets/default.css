@@ -55,7 +55,7 @@ button {
 .overlayScreen {
   position: fixed;
 }
-.overlay {
+.overlayScreen .overlay {
   background: rgba(108, 121, 120, 0.28);
   position: fixed;
   height: 100vh;
@@ -64,25 +64,24 @@ button {
   opacity: 0;
   transition: visibility 0s 0.3s, opacity 0.3s linear;
 }
-.overlay .card {
+.overlayScreen .card {
   position: absolute;
-  margin-top: 15vh;
   min-height: calc(85vh - 50px);
   width: calc(100vw - 50px);
   border-radius: 10px 10px 0px 0px;
   display: flex;
   flex-direction: column;
-  bottom: -100vh;
   overflow: hidden;
+  top: 100vh;
   transition: all 0.3s ease;
 }
-.active .overlay {
+.overlayScreen.active .overlay {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.3s linear;
 }
-.active .overlay .card {
-  bottom: 0;
+.overlayScreen.active .card {
+  top: 15vh;
 }
 /*** ICONS ***/
 .mdi {

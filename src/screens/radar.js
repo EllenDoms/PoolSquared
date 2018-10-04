@@ -20,9 +20,7 @@ class Radar extends Component {
     console.log(this.state.loginOverlay)
     return (
       <div>
-        <div className={this.state.loginOverlay === true ? 'overlayScreen active' : 'overlayScreen'}>
-          <Login close={() => this.setState({loginOverlay: false})}/>
-        </div>
+        <Login state={this.state.loginOverlay === true ? 'overlayScreen active' : 'overlayScreen'} close={() => this.setState({loginOverlay: false})}/>
         <Header title='Find a pool' iconRight='account-outline' clickRight={() => this.setState({loginOverlay: true})} />
         Map
         Cards

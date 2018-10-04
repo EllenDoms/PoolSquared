@@ -8,7 +8,8 @@ import Logo from '../components/assets/logo.png';
 class Login extends Component {
   render() {
     return (
-      <div className='overlay' onClick={this.props.close}>
+      <div className={this.props.state} >
+        <div className='overlay' onClick={this.props.close}/>
         <div className='card center'>
           <img className='radarBg' src={RadarBg}></img>
           <div className='wrapper'>

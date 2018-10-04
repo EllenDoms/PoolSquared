@@ -67,36 +67,38 @@ button {
 }
 
 /*** OVERLAY ***/
-.overlayScreen { position: fixed; }
-
-.overlay {
-  background: @overlay;
+.overlayScreen {
   position: fixed;
-  height: 100vh;
-  width: 100vw;
-  visibility: hidden;
-  opacity: 0;
-  transition: @overlayFadeOut ;
+  .overlay {
+    background: @overlay;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    visibility: hidden;
+    opacity: 0;
+    transition: @overlayFadeOut ;
+  }
   .card {
     position: absolute;
-    margin-top: 15vh;
     min-height: ~"calc(85vh - 50px)";
     width: ~"calc(100vw - 50px)";
     border-radius: 10px 10px 0px 0px;
     display: flex;
     flex-direction: column;
-    bottom: -100vh;
     overflow: hidden;
+    top: 100vh;
     transition: @transition;
+  }
+  &.active {
+    .overlay {
+      visibility: visible;
+      opacity: 1;
+      transition: @overlayFadeIn;
+    }
+    .card { top: 15vh; }
   }
 }
 
-.active .overlay {
-  visibility: visible;
-  opacity: 1;
-  transition: @overlayFadeIn;
-  .card { bottom: 0; }
-}
 
 
 /*** ICONS ***/
