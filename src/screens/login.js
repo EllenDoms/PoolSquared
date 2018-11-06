@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { fbLogin, overlayScreen } from '../redux/actions';
 import * as firebase from 'firebase';
 import { provider, auth } from '../config/firebase';
+import { Field, reduxForm, FieldArray } from 'redux-form';
+
+import { fbLogin, overlayScreen } from '../redux/actions';
 
 import Button from '../components/atoms/button';
+import { ShortField } from '../components/atoms/formElements';
 import RadarBg from '../components/assets/radarBg.png';
 import Logo from '../components/assets/logo.png';
 
 class Login extends Component {
-  login() {
-    auth().signInWithPopup(provider).then(result => {
-      this.props.login(result.user);
-    }).catch(function(error) { console.log(error) });
+  formSubmit = (values) => {
+    console.log(values)
+    // auth().createUserWithEmailAndPassword(email, password).then(result => {
+    //   console.log(result)
+    //   //this.props.login(result.user);
+    // }).catch(function(error) { console.log(error) });
   }
   render() {
+    const { auth, error, handleSubmit } = this.props;
     return (
       <div className={this.props.state} >
         <div className='overlay' onClick={() => this.props.overlayScreen('login', false)}/>
@@ -23,7 +29,14 @@ class Login extends Component {
           <div className='wrapper'>
             <img className='logoMedium center' src={Logo}></img>
             <p>Login to make a reservation</p>
-            <Button label='Continue with facebook' icon='facebook' disabled='false' click={() => this.fbLogin()} />
+            {/*Login email */}
+            <form onSubmit={handleSubmit(this.formSubmit)}>
+              <Field name='email' label='Email' component={ShortField} type='text' />
+              <Field name='password' label='Password' component={ShortField} type='password' />
+              <Button label='Login' disabled='false' type='submit' />
+            </form>
+            {/* Login FB */}
+            {/*<Button label='Continue with facebook' icon='facebook' disabled='false' click={() => this.login()} />*/}
             <p className="textLight">We don't post anything on facebook</p>
           </div>
         </div>
@@ -39,4 +52,7 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fbLogin, overlayScreen })(Login);
+export default reduxForm({
+  // validate,
+  form: 'signInForm',
+})( connect(mapStateToProps, { fbLogin, overlayScreen })(Login));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { login } from './redux/actions';
+import { fbLogin } from './redux/actions';
 import * as firebase from 'firebase';
 import { auth } from './config/firebase';
 
@@ -13,7 +13,7 @@ class App extends Component {
   componentDidMount() {
     // listener authentication
     auth().onAuthStateChanged(user => {
-      if(user) { this.props.login(user) }
+      if(user) { this.props.fbLogin(user) }
     });
   }
   render() {
@@ -31,4 +31,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { login })(App);
+export default connect(mapStateToProps, { fbLogin })(App);

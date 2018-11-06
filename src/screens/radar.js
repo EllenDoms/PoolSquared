@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 //components
 import Header from '../components/organisms/header';
+import Card from '../components/organisms/card';
 
 //screens
 import Login from './login';
