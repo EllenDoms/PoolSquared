@@ -8,6 +8,12 @@ out: default.css
 @neutral-light: #9B9289;
 @neutral-dark: #524F48;
 
+@grey1: #FBFCFC;
+@grey2: #F5F7F8;
+@grey3: #EBF0F4;
+@grey4: #E0E7EC;
+@grey5: #D4DDE4;
+
 @h-font: 'Teko', sans-serif;
 @p-font: 'Roboto', sans-serif;
 
@@ -34,7 +40,6 @@ h1 {
   color: @neutral;
   text-transform: uppercase;
 }
-
 h2 {
   font-family: @h-font;
   font-size: 22px;
@@ -42,7 +47,6 @@ h2 {
   color: @neutral;
   text-transform: uppercase;
 }
-
 p {
   font-size: 14px;
   color: @neutral;
@@ -114,7 +118,6 @@ button {
   width: 180px;
   margin: 0px auto 30px auto;
 }
-
 .avatarMini {
   height: 24px;
   width: 24px;
@@ -130,4 +133,28 @@ button {
   justify-content: space-between;
   padding: @padding;
   padding-top: 30px; // if full screen: should be 66px
+}
+
+/*** FORM ***/
+form {
+  label {
+    width: 100%;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    color: @neutral;
+    line-height: 24px;
+    font-size: 12px;
+  }
+  input {
+    width: ~"calc(100% - 20px)";
+    border: solid 1px @grey5;
+    line-height: 24px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    &:focus { outline: none; }
+  }
+  .fieldwrapper {
+    width: 100%;
+  }
 }

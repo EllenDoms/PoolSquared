@@ -116,3 +116,26 @@ button .mdi {
   padding: 25px;
   padding-top: 30px;
 }
+/*** FORM ***/
+form label {
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  color: #6F6E6D;
+  line-height: 24px;
+  font-size: 12px;
+}
+form input {
+  width: calc(100% - 20px);
+  border: solid 1px #D4DDE4;
+  line-height: 24px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+form input:focus {
+  outline: none;
+}
+form .fieldwrapper {
+  width: 100%;
+}

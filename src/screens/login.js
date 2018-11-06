@@ -44,6 +44,13 @@ class Login extends Component {
   }
 }
 
+const validate = values => { //validate function will automatically be called by redux-form
+  const errors = {};
+  if(!values.email) { errors.email = 'Required' }
+  if(!values.password) { errors.password = 'Required' }
+  return errors
+}
+
 function mapStateToProps(state) {
   return {
     user: state.user,
@@ -52,6 +59,6 @@ function mapStateToProps(state) {
 }
 
 export default reduxForm({
-  // validate,
+  validate,
   form: 'signInForm',
 })( connect(mapStateToProps, { login, overlayScreen })(Login));

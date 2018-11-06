@@ -4,8 +4,8 @@ import { fbLogin } from './redux/actions';
 import * as firebase from 'firebase';
 import { auth } from './config/firebase';
 
-import './components/assets/default.css'; //css default
-import './components/assets/poolSquared.css'; //special project css
+import './style/default.css'; //css default
+import './style/poolSquared.css'; //special project css
 
 import Radar from './screens/radar';
 
