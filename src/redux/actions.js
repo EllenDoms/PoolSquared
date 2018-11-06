@@ -21,6 +21,28 @@ export const fbLogin = (user) => (dispatch, getState) => {
   })
 };
 
+export const login = (user) => (dispatch) => {
+  console.log('logging in')
+  firebase.database().ref('/people/' + user.uid).once('value')
+  .then(snapshot => snapshot.val()).then(val => {
+    if(val) {
+      console.log('val: ', val)
+      dispatch({ type: UPDATE_USER, payload: val });
+    } else {
+      let params = {
+        loggedIn: true,
+        uid: user.uid,
+        email: user.email
+      }
+      console.log('params: ', params)
+      firebase.database().ref('/people/' + user.uid).update(params);
+      dispatch({ type: UPDATE_USER, payload: params });
+    }
+    // now we can close the login screen
+    dispatch({ type: SCREEN_OVERLAY, screen: 'login', state: false });
+  })
+};
+
 export const overlayScreen = (screen, state) => (dispatch, getState) => {
   dispatch({ type: SCREEN_OVERLAY, screen: screen, state: state });
 }

@@ -3,9 +3,7 @@ import { UPDATE_USER, SCREEN_OVERLAY } from "./types";
 const initialState = {
   user: {
     loggedIn: false,
-    uid: '',
-    fbPhotoUrl: '',
-    name: ''
+    uid: ''
   },
   screenOverlay: {
     login: false,

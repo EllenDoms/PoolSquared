@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 import { provider, auth } from '../config/firebase';
 import { Field, reduxForm, FieldArray } from 'redux-form';
 
-import { fbLogin, overlayScreen } from '../redux/actions';
+import { login, overlayScreen } from '../redux/actions';
 
 import Button from '../components/atoms/button';
 import { ShortField } from '../components/atoms/formElements';
@@ -13,11 +13,10 @@ import Logo from '../components/assets/logo.png';
 
 class Login extends Component {
   formSubmit = (values) => {
-    console.log(values)
-    // auth().createUserWithEmailAndPassword(email, password).then(result => {
-    //   console.log(result)
-    //   //this.props.login(result.user);
-    // }).catch(function(error) { console.log(error) });
+    auth().createUserWithEmailAndPassword(values.email, values.password).then(result => {
+      console.log(result)
+      this.props.login(result.user);
+    }).catch(function(error) { console.log(error) });
   }
   render() {
     const { auth, error, handleSubmit } = this.props;
@@ -55,4 +54,4 @@ function mapStateToProps(state) {
 export default reduxForm({
   // validate,
   form: 'signInForm',
-})( connect(mapStateToProps, { fbLogin, overlayScreen })(Login));
+})( connect(mapStateToProps, { login, overlayScreen })(Login));
