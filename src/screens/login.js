@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { login, overlayScreen } from '../redux/actions';
+import { fbLogin, overlayScreen } from '../redux/actions';
 import * as firebase from 'firebase';
 import { provider, auth } from '../config/firebase';
 
@@ -23,7 +23,7 @@ class Login extends Component {
           <div className='wrapper'>
             <img className='logoMedium center' src={Logo}></img>
             <p>Login to make a reservation</p>
-            <Button label='Continue with facebook' icon='facebook' disabled='false' click={() => this.login()} />
+            <Button label='Continue with facebook' icon='facebook' disabled='false' click={() => this.fbLogin()} />
             <p className="textLight">We don't post anything on facebook</p>
           </div>
         </div>
@@ -39,4 +39,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { login, overlayScreen })(Login);
+export default connect(mapStateToProps, { fbLogin, overlayScreen })(Login);

@@ -1,7 +1,7 @@
 import { UPDATE_USER, SCREEN_OVERLAY } from './types.js';
 import * as firebase from "firebase";
 
-export const login = (user) => (dispatch, getState) => {
+export const fbLogin = (user) => (dispatch, getState) => {
   firebase.database().ref('/people/' + user.uid).once('value')
   .then(snapshot => snapshot.val()).then(val => {
     if(val) {
