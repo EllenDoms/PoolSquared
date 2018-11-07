@@ -40,7 +40,7 @@ p.textLight {
 button {
   line-height: 48px;
   width: 100%;
-  background-color: #00D0C6;
+  background-color: #FDCD3E;
   border: none;
   color: #FFF;
   font-size: 16px;
@@ -131,7 +131,7 @@ button .mdi {
   line-height: 30px;
 }
 .tabs .tab-item.active {
-  color: #00D0C6;
+  color: #FDCD3E;
 }
 /*** FORM ***/
 form {
@@ -156,7 +156,7 @@ form input:focus {
   outline: none;
 }
 form .error {
-  color: #00D0C6;
+  color: #FDCD3E;
   line-height: 24px;
   font-size: 12px;
 }

@@ -1,7 +1,13 @@
 import { UPDATE_USER, SCREEN_OVERLAY } from './types.js';
 import * as firebase from "firebase";
+import { provider, auth } from '../config/firebase';
 
-export const fbLogin = (user) => (dispatch, getState) => {
+
+export const overlayScreen = (screen, state) => (dispatch, getState) => {
+  dispatch({ type: SCREEN_OVERLAY, screen: screen, state: state });
+}
+
+export const fbLogin = (user) => (dispatch) => {
   firebase.database().ref('/people/' + user.uid).once('value')
   .then(snapshot => snapshot.val()).then(val => {
     if(val) {
@@ -43,6 +49,13 @@ export const login = (user) => (dispatch) => {
   })
 };
 
-export const overlayScreen = (screen, state) => (dispatch, getState) => {
-  dispatch({ type: SCREEN_OVERLAY, screen: screen, state: state });
-}
+export const logout = () => (dispatch, getState) => {
+  let uid = getState().user.uid
+  auth().signOut().then(function() {
+    firebase.database().ref('/people/' + uid).child('/loggedIn').set(false);
+    dispatch({ type: UPDATE_USER, payload: {loggedIn: false} });
+    // now we can close the profile screen
+    dispatch({ type: SCREEN_OVERLAY, screen: 'profile', state: false });
+  }).catch(function(error) { console.log(error) });
+
+};

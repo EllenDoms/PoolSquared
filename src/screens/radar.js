@@ -7,16 +7,15 @@ import Card from '../components/organisms/card';
 
 //screens
 import Login from './login';
+import Profile from './profile';
 
 class Radar extends Component {
   render() {
     const { screen } = this.props
     return (
       <div>
-        <Login
-          state={screen.login === true ? 'overlayScreen active' : 'overlayScreen'}
-          close={() => this.setState({loginOverlay: false})}
-        />
+        <Login state={screen.login === true ? 'overlayScreen active' : 'overlayScreen'} />
+        <Profile state={screen.profile === true ? 'overlayScreen active' : 'overlayScreen'} />
         <Header title='Find a pool' />
         Map
         <Card
