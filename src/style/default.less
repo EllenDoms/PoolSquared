@@ -135,6 +135,22 @@ button {
   padding-top: 30px; // if full screen: should be 66px
 }
 
+/*** TABS ***/
+.tabs {
+  width: 100%;
+  border-bottom: 1px solid @grey3;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  .tab-item {
+    font-weight: bold;
+    color: @neutral;
+    text-align: center;
+    line-height: 30px;
+    &.active { color: @primary; }
+  }
+}
+
 /*** FORM ***/
 form {
   text-align: left;

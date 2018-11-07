@@ -116,6 +116,23 @@ button .mdi {
   padding: 25px;
   padding-top: 30px;
 }
+/*** TABS ***/
+.tabs {
+  width: 100%;
+  border-bottom: 1px solid #EBF0F4;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.tabs .tab-item {
+  font-weight: bold;
+  color: #6F6E6D;
+  text-align: center;
+  line-height: 30px;
+}
+.tabs .tab-item.active {
+  color: #00D0C6;
+}
 /*** FORM ***/
 form {
   text-align: left;
