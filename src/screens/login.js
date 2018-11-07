@@ -6,15 +6,20 @@ import { Field, reduxForm, FieldArray } from 'redux-form';
 
 import { login, overlayScreen } from '../redux/actions';
 
-import Button from '../components/atoms/button';
-import { ShortField } from '../components/atoms/formElements';
 import RadarBg from '../components/assets/radarBg.png';
 import Logo from '../components/assets/logo.png';
+import Button from '../components/atoms/button';
+import { ShortField } from '../components/atoms/formElements';
+import Tabs from '../components/organisms/tabs';
+
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { active: 'login' };
+  }
+  setActive = (activePage) => {
+    this.setState({active: activePage})
   }
   formSubmit = (values) => {
     if(this.state.active === 'login') {
@@ -36,6 +41,7 @@ class Login extends Component {
           <img className='radarBg' src={RadarBg}></img>
           <div className='wrapper'>
             <img className='logoMedium center' src={Logo}></img>
+            <Tabs items={['login', 'register']} active={this.state.active} action={this.setActive} />
             {/*Login email */}
             <form onSubmit={handleSubmit(this.formSubmit)}>
               <Field name='email' label='Email' component={ShortField} type='text' />
