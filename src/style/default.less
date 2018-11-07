@@ -137,24 +137,31 @@ button {
 
 /*** FORM ***/
 form {
+  text-align: left;
   label {
     width: 100%;
     display: block;
-    text-align: left;
     font-weight: bold;
     color: @neutral;
     line-height: 24px;
     font-size: 12px;
   }
   input {
-    width: ~"calc(100% - 20px)";
+    width: ~"calc(100% - 22px)"; // padding and border
     border: solid 1px @grey5;
     line-height: 24px;
     padding: 5px 10px;
     border-radius: 5px;
     &:focus { outline: none; }
   }
+  .error {
+    color: @primary;
+    line-height: 24px;
+    font-size: 12px;
+  }
   .fieldwrapper {
     width: 100%;
+    margin-bottom: 10px;
   }
+
 }
