@@ -7,11 +7,11 @@ class ProfilePic extends Component {
     console.log(this.props)
     // if facebook picture is not there
     //clickable??
-    const { fbPhotoUrl } = this.props.user
-    if(!this.props.user) { // user not logged in = open login screen
+    const { user, user : { fbPhotoUrl, loggedIn }} = this.props
+    if(!user || !loggedIn) { // user not logged in = open login screen
       return <div className='mdi mdi-account-outline' onClick={this.props.clickable ? () => this.props.overlayScreen('login', true) : ''}></div>
-    } else if(!fbPhotoUrl) { // There is a user, but no picture = open profile
-      return <div className='mdi mdi-account-outline' onClick={this.props.clickable ? () => this.props.overlayScreen('login', true) : ''}></div>
+    } else if(loggedIn && !fbPhotoUrl  ) { // There is a user, but no picture = open profile
+      return <div className='mdi mdi-account' onClick={this.props.clickable ? () => this.props.overlayScreen('profile', true) : ''}></div>
     } else {
       return <img className='avatarMini' src={fbPhotoUrl} onClick={this.props.clickable ? () => this.props.overlayScreen('profile', true) : ''}/>
     }
