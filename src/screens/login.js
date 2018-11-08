@@ -9,7 +9,7 @@ import { login, overlayScreen } from '../redux/actions';
 import RadarBg from '../components/assets/radarBg.png';
 import Logo from '../components/assets/logo.png';
 import Button from '../components/atoms/button';
-import { ShortField } from '../components/atoms/formElements';
+import { ShortField, PasswordRegister } from '../components/atoms/formElements';
 import Tabs from '../components/organisms/tabs';
 
 
@@ -38,14 +38,14 @@ class Login extends Component {
       <div className={this.props.state} >
         <div className='overlay' onClick={() => this.props.overlayScreen('login', false)}/>
         <div className='card center'>
-          <img className='radarBg' src={RadarBg}></img>
+          <img alt="radarBg" className='radarBg' src={RadarBg}></img>
           <div className='wrapper'>
-            <img className='logoMedium center' src={Logo}></img>
+            <img alt="logo" className='logoMedium center' src={Logo}></img>
             <Tabs items={['login', 'register']} active={this.state.active} action={this.setActive} />
             {/*Login email */}
             <form onSubmit={handleSubmit(this.formSubmit)}>
               <Field name='email' label='Email' component={ShortField} type='text' />
-              <Field name='password' label='Password' component={ShortField} type='password' />
+              <Field name='password' label='Password' component={PasswordRegister} type='password' />
               <Button label={this.state.active === 'login' ? 'Login' : 'Register'} disabled='false' type='submit' />
             </form>
             {/* Login FB */}

@@ -3,8 +3,9 @@ out: default.css
 @primary: #FDCD3E;
 
 @neutral: #6F6E6D;
-@neutral-light: #9B9289;
-@neutral-dark: #524F48;
+@func-green: #38DB9F;
+@func-orange: #FDCD3E;
+@func-red: #E35B79;
 
 @grey1: #FBFCFC;
 @grey2: #F5F7F8;
@@ -162,6 +163,7 @@ form {
     font-size: 12px;
   }
   input {
+    appearance: none;
     width: ~"calc(100% - 22px)"; // padding and border
     border: solid 1px @grey5;
     line-height: 24px;
@@ -173,6 +175,24 @@ form {
     color: @primary;
     line-height: 24px;
     font-size: 12px;
+  }
+  #passwordStrength {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5px;
+    margin: 5px 0px;
+    .strength {
+      width: 32.5%;
+      height: 100%;
+      background-color: @grey4;
+      border-radius: 3px;
+      &.active {
+        &.strength1 { background-color: @func-red }
+        &.strength2 { background-color: @func-orange }
+        &.strength3 { background-color: @func-green }
+      }
+    }
   }
   .fieldwrapper {
     width: 100%;

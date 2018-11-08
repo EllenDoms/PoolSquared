@@ -147,6 +147,7 @@ form label {
   font-size: 12px;
 }
 form input {
+  appearance: none;
   width: calc(100% - 22px);
   border: solid 1px #D4DDE4;
   line-height: 24px;
@@ -160,6 +161,28 @@ form .error {
   color: #FDCD3E;
   line-height: 24px;
   font-size: 12px;
+}
+form #passwordStrength {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 5px;
+  margin: 5px 0px;
+}
+form #passwordStrength .strength {
+  width: 32.5%;
+  height: 100%;
+  background-color: #E0E7EC;
+  border-radius: 3px;
+}
+form #passwordStrength .strength.active.strength1 {
+  background-color: #E35B79;
+}
+form #passwordStrength .strength.active.strength2 {
+  background-color: #FDCD3E;
+}
+form #passwordStrength .strength.active.strength3 {
+  background-color: #38DB9F;
 }
 form .fieldwrapper {
   width: 100%;

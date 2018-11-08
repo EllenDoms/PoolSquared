@@ -6,7 +6,7 @@ export default class Loading extends Component {
   render() {
     return (
       <div>
-        <img className='imgMedium center' src={Logo}></img>
+        <img alt="radarbg" className='imgMedium center' src={Logo}></img>
         <p>Loading...</p>
       </div>
     )
