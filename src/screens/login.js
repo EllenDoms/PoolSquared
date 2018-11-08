@@ -45,7 +45,7 @@ class Login extends Component {
             {/*Login email */}
             <form onSubmit={handleSubmit(this.formSubmit)}>
               <Field name='email' label='Email' component={ShortField} type='text' />
-              <Field name='password' label='Password' component={PasswordRegister} type='password' />
+              <Field name='password' label='Password' component={PasswordRegister} type='password' screen={this.state.active} />
               <Button label={this.state.active === 'login' ? 'Login' : 'Register'} disabled='false' type='submit' />
             </form>
             {/* Login FB */}
