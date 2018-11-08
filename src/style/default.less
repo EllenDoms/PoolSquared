@@ -75,6 +75,7 @@ button {
 /*** OVERLAY ***/
 .overlayScreen {
   position: fixed;
+  height: 100%;
   .overlay {
     background: @overlay;
     position: fixed;
@@ -85,8 +86,8 @@ button {
     transition: @overlayFadeOut ;
   }
   .card {
-    position: absolute;
-    min-height: ~"calc(90vh - 50px)";
+    position: relative;
+    min-height: ~"calc(90% - 50px)";
     width: ~"calc(100vw - 50px)";
     border-radius: 10px 10px 0px 0px;
     display: flex;
