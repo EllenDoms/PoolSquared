@@ -62,6 +62,7 @@ button .mdi {
 /*** OVERLAY ***/
 .overlayScreen {
   position: fixed;
+  z-index: 999;
   height: 100%;
 }
 .overlayScreen .overlay {

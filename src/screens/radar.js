@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 //components
+import Map from '../components/molecules/map';
 import Header from '../components/organisms/header';
 import Card from '../components/organisms/card';
 
 //screens
 import Login from './login';
 import Profile from './profile';
-
-const mapStyles = {
-  width: '100%',
-  height: '100%'
-};
 
 class Radar extends Component {
   render() {
@@ -23,14 +18,7 @@ class Radar extends Component {
         <Login state={screen.login === true ? 'overlayScreen active' : 'overlayScreen'} />
         <Profile state={screen.profile === true ? 'overlayScreen active' : 'overlayScreen'} />
         <Header title='Find a pool' iconLeft='plus' />
-        <Map
-          google={this.props.google}
-          zoom={14}
-          initialCenter={{
-           lat: 51.0538286,
-           lng: 3.7250121
-          }}
-        />
+        <Map />
         <Card
           title='Mah Pool!'
           active='true'
@@ -56,8 +44,4 @@ function mapStateToProps(state) {
   };
 }
 
-const connectRadarToRedux = connect(mapStateToProps)(Radar);
-
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDtaX-G4WYasmq1VxnI6RH9Nvv3EjyETxw'
-})(connectRadarToRedux);
+export default connect(mapStateToProps)(Radar);
