@@ -30,8 +30,10 @@ export const login = (user) => (dispatch) => {
   firebase.database().ref('/people/' + user.uid).once('value')
   .then(snapshot => snapshot.val()).then(val => {
     if(val) {
+      // user exists
       dispatch({ type: UPDATE_USER, payload: val });
     } else {
+      // new user
       let params = {
         loggedIn: true,
         uid: user.uid,
@@ -39,6 +41,8 @@ export const login = (user) => (dispatch) => {
       }
       firebase.database().ref('/people/' + user.uid).update(params);
       dispatch({ type: UPDATE_USER, payload: params });
+
+      // send register mail
     }
     // now we can close the login screen
     dispatch({ type: SCREEN_OVERLAY, screen: 'login', state: false });
