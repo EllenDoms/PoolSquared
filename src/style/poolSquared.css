@@ -10,6 +10,8 @@
   margin-bottom: 5vh;
   bottom: 0;
   width: calc(100vw - 50px);
+  max-width: 500px;
+  align-self: center;
 }
 .header {
   z-index: 1;
